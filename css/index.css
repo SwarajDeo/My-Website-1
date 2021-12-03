@@ -1,0 +1,254 @@
+html {
+  font-family: "Ubuntu", sans-serif;
+}
+
+#myanav {
+  background-color: rgb(0, 0, 0);
+}
+
+.anav {
+  width: 98%;
+  position: absolute;
+  top: 0px;
+  padding: 8px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 98%;
+  padding: 8px;
+}
+
+.sticky a {
+  float: right;
+  display: flex;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 20px 25px;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.anav a {
+  float: right;
+  display: flex;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 20px 25px;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.content {
+  border: 15px solid rgb(255, 255, 255);
+  border-radius: 30px;
+  background-color: rgb(255, 255, 255);
+  margin: 35px;
+  margin-top: 100px;
+
+  box-shadow: 0 0 20px 3px #ffff01, 0 0 4px 2px #ffff01;
+  animation-name: gradient-shadow;
+  animation-duration: 7s;
+  animation-iteration-count: infinite;
+  border-radius: 25px;
+}
+
+.copyright p {
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+}
+
+@keyframes gradient-shadow {
+  0% {
+    box-shadow: 0 0 17px 3px #c586c0, 0 0 4px 2px #c586c0;
+  }
+  20% {
+    box-shadow: 0 0 17px 3px #0ff, 0 0 4px 2px #0ff;
+  }
+  40% {
+    box-shadow: 0 0 17px 3px #0f0, 0 0 4px 2px #0f0;
+  }
+  60% {
+    box-shadow: 0 0 17px 3px #ffff01, 0 0 4px 2px #ffff01;
+  }
+  80% {
+    box-shadow: 0 0 17px 3px #f00, 0 0 4px 2px #f00;
+  }
+  100% {
+    box-shadow: 0 0 17px 3px #c586c0, 0 0 4px 2px #c586c0;
+  }
+}
+
+h1 {
+  text-align: center;
+}
+
+.content2 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 17%;
+  border: 5px solid;
+  border-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Cstyle%3Epath%7Banimation:stroke 5s infinite linear%3B%7D%40keyframes stroke%7Bto%7Bstroke-dashoffset:776%3B%7D%7D%3C/style%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%232d3561' /%3E%3Cstop offset='25%25' stop-color='%23c05c7e' /%3E%3Cstop offset='50%25' stop-color='%23f3826f' /%3E%3Cstop offset='100%25' stop-color='%23ffb961' /%3E%3C/linearGradient%3E %3Cpath d='M1.5 1.5 l97 0l0 97l-97 0 l0 -97' stroke-linecap='square' stroke='url(%23g)' stroke-width='3' stroke-dasharray='388'/%3E %3C/svg%3E")
+    1;
+}
+
+.hideres{
+  display: none;
+}
+@media screen and (max-width: 600px) {
+  .hideres{
+    display: inherit;
+  }
+  .wrapper{
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100%;
+    width: 100%;
+    background: #000;
+    transition: all 0.6s ease-in-out;
+  }
+  #active:checked ~ .wrapper{
+    right:0;
+  }
+  .menu-btn{
+    position: absolute;
+    z-index: 2;
+    right: 20px;
+    top: 20px;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  .menu-btn span,
+  .menu-btn:before,
+  .menu-btn:after{
+    content: "";
+    position: absolute;
+    top: calc(50% - 1px);
+    left: 30%;
+    width: 40%;
+    border-bottom: 2px solid rgb(250, 250, 250);
+    transition: transform .6s cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  .menu-btn:before{
+    transform: translateY(-8px);
+  }
+  .menu-btn:after{
+    transform: translateY(8px);
+  }
+  
+  
+  .close {
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    transition: background .6s;
+  }
+  
+  #active:checked + .menu-btn span {
+    transform: scaleX(0);
+  }
+  #active:checked + .menu-btn:before {
+    transform: rotate(45deg);
+    border-color: #fff;
+  }
+  #active:checked + .menu-btn:after {
+    transform: rotate(-45deg);
+    border-color: #fff;
+  }
+  .wrapper ul{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    height: 90%;
+    transform: translate(-50%, -50%);
+    list-style: none;
+    text-align: center;
+  }
+  .wrapper ul li{
+    height: 10%;
+    margin: 15px 0;
+  }
+  .wrapper ul li a{
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: 500;
+    padding: 5px 30px;
+    color: #fff;
+    border-radius: 50px;
+    position: absolute;
+    line-height: 50px;
+    margin: 5px 30px;
+    opacity: 0;
+    transition: all 0.3s ease;
+    transition: transform .6s cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  .wrapper ul li a:after{
+    position: absolute;
+    content: "";
+    background: #fff;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 50px;
+    transform: scaleY(0);
+    z-index: -1;
+    transition: transform 0.3s ease;
+  }
+  .wrapper ul li a:hover:after{
+    transform: scaleY(1);
+  }
+  .wrapper ul li a:hover{
+    color: #1a73e8;
+  }
+  input[type="checkbox"]{
+    display: none;
+  }
+  
+  #active:checked ~ .wrapper ul li a{
+    opacity: 1;
+  }
+  .wrapper ul li a{
+    transition: opacity 1.2s, transform 1.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translateX(100px);
+  }
+  #active:checked ~ .wrapper ul li a{
+    transform: none;
+    transition-timing-function: ease, cubic-bezier(.1,1.3,.3,1);
+     transition-delay: .6s;
+    transform: translateX(-100px);
+  }
+  .anav{
+    display: none;
+  }
+  .sticky{
+    display: none;
+  }
+
+  .content2 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+    border: 5px solid;
+    border-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Cstyle%3Epath%7Banimation:stroke 5s infinite linear%3B%7D%40keyframes stroke%7Bto%7Bstroke-dashoffset:776%3B%7D%7D%3C/style%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%232d3561' /%3E%3Cstop offset='25%25' stop-color='%23c05c7e' /%3E%3Cstop offset='50%25' stop-color='%23f3826f' /%3E%3Cstop offset='100%25' stop-color='%23ffb961' /%3E%3C/linearGradient%3E %3Cpath d='M1.5 1.5 l97 0l0 97l-97 0 l0 -97' stroke-linecap='square' stroke='url(%23g)' stroke-width='3' stroke-dasharray='388'/%3E %3C/svg%3E")
+      1;
+  }
+  
+}
